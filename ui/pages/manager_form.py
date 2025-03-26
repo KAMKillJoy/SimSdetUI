@@ -1,4 +1,3 @@
-import allure
 from ui.base.base_page import BasePage
 from ui.pages.manager_form_locators import ManagerFormLocators
 from selenium.webdriver.common.by import By

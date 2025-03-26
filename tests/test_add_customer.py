@@ -7,7 +7,7 @@ from ui.pages.manager_form import ManagerFormMethods
 
 def test_new_client_add_form(browser):
     allure.dynamic.title("Тест добавления нового клиента")
-    allure.dynamic.description("Тест генерирует Имя клиента по алгоритму из документации (пункт 61141414141),"
+    allure.dynamic.description("Тест генерирует Имя клиента по алгоритму из ТЗ,"
                                "заполняет поля Firstname, Lastname, Postcode и нажимает кнопку добавления клиента."
                                "Затем проверяет наличие добавленного клиента в таблице клиентов")
     allure.dynamic.tag("GUI_test", "Simbirsoft", "ManagerForm")
