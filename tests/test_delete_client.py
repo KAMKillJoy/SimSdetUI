@@ -47,14 +47,11 @@ def test_delete_client(browser):
     #  print (del_client_number)
     with allure.step("Удаление найденного клиента"):
         manager_form.delete_client_by_row_number(del_client_number)
-        pass
 
     rows = manager_form.get_customers_table()
-    for row in rows:
-        assert del_client not in row.text
-    else:
-        with allure.step("Проверка отсутствия удалённого клиента в таблице"):
-            pass
+    with allure.step("Проверка отсутствия удалённого клиента в таблице"):
+        for row in rows:
+            assert del_client not in row.text
 
     client_names.remove(del_client)
     expected_client_names = client_names
