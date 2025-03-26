@@ -8,7 +8,7 @@ def find_del_client(client_names_list):
     del_client = ""
     for name in client_names_list:
         name_len_sum += len(name)
-    av_name_len = name_len_sum/len(client_names_list)
+    av_name_len = name_len_sum / len(client_names_list)
     closest = 999
     for name in client_names_list:
         avdif = abs(len(name) - av_name_len)
@@ -29,28 +29,35 @@ def test_delete_client(browser):
     allure.dynamic.link("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager",
                         name="Website")
     manager_form = ManagerFormMethods(browser)
-    with allure.step("Открытие сайта"):manager_form.go_to_site()
-    with allure.step("Открытие таблицы со всеми клиентами"):manager_form.click_customers()
+    with allure.step("Открытие сайта"):
+        manager_form.go_to_site()
+    with allure.step("Открытие таблицы со всеми клиентами"):
+        manager_form.click_customers()
 
-    with allure.step("Получение строк таблицы с клиентами"):rows = manager_form.get_customers_table()
+    with allure.step("Получение строк таблицы с клиентами"):
+        rows = manager_form.get_customers_table()
 
-    with allure.step("Составление списка со всеми именами клиентов"):client_names = manager_form.get_client_names(rows)
+    with allure.step("Составление списка со всеми именами клиентов"):
+        client_names = manager_form.get_client_names(rows)
 
-    with allure.step("Вычисление клиента, чьё имя ближе всего по длине к среднему значению длин всех имён клиентов"):del_client = find_del_client(client_names)
+    with allure.step("Вычисление клиента, чьё имя ближе всего по длине к среднему значению длин всех имён клиентов"):
+        del_client = find_del_client(client_names)
     #  print (del_client)
     del_client_number = client_names.index(del_client)
     #  print (del_client_number)
-    with allure.step("Удаление найденного клиента"):manager_form.delete_client_by_row_number(del_client_number)
+    with allure.step("Удаление найденного клиента"):
+        manager_form.delete_client_by_row_number(del_client_number)
 
     rows = manager_form.get_customers_table()
     for row in rows:
         assert del_client not in row.text
     else:
-        with allure.step("Проверка отсутствия удалённого клиента в таблице"):True
+        with allure.step("Проверка отсутствия удалённого клиента в таблице"):
+            True
 
     client_names.remove(del_client)
     expected_client_names = client_names
     client_names = manager_form.get_client_names(rows)
 
-    with allure.step("Проверка наличия остальных клиентов в таблице"):assert client_names == expected_client_names
-
+    with allure.step("Проверка наличия остальных клиентов в таблице"):
+        assert client_names == expected_client_names

@@ -32,7 +32,7 @@ class ManagerFormMethods(BasePage):
     def delete_client_by_row_number(self, row):
         ManagerFormLocators.LOCATOR_DELETE_CUSTOMER = \
             (ManagerFormLocators.LOCATOR_DELETE_CUSTOMER[0],
-             ManagerFormLocators.LOCATOR_DELETE_CUSTOMER[1].replace("{row}", str(row+1)))
+             ManagerFormLocators.LOCATOR_DELETE_CUSTOMER[1].replace("{row}", str(row + 1)))
         #  print(ManagerFormLocators.LOCATOR_DELETE_CUSTOMER)
         self.find_element(ManagerFormLocators.LOCATOR_DELETE_CUSTOMER).click()
 
