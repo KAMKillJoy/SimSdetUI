@@ -4,6 +4,9 @@ from selenium.webdriver.common.by import By
 from ui.pages.manager_form import ManagerFormMethods
 
 
+@allure.epic("UI test")
+@allure.feature("Работа с пользователями")
+@allure.story("Сортировка клиентов")
 def test_sort_clients(browser):
     allure.dynamic.title("Тест сортировки таблицы с клиентами")
     allure.dynamic.description(

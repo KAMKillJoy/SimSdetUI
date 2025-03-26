@@ -19,6 +19,9 @@ def find_del_client(client_names_list):
     return del_client
 
 
+@allure.epic("UI test")
+@allure.feature("Работа с пользователями")
+@allure.story("Удаление клиента")
 def test_delete_client(browser):
     allure.dynamic.title("Тест удаления клиента")
     allure.dynamic.description(

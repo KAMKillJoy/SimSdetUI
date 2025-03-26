@@ -5,6 +5,9 @@ from selenium.webdriver.common.by import By
 from ui.pages.manager_form import ManagerFormMethods
 
 
+@allure.epic("UI test")
+@allure.feature("Работа с пользователями")
+@allure.story("Добавление клиента")
 def test_new_client_add_form(browser):
     allure.dynamic.title("Тест добавления нового клиента")
     allure.dynamic.description("Тест генерирует Имя клиента по алгоритму из ТЗ,"
