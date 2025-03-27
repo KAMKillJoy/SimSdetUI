@@ -4,6 +4,11 @@ from selenium.webdriver.common.by import By
 
 
 class ManagerFormMethods(BasePage):
+    PATH = "#/manager"
+
+    def go_to_site(self):
+        super().go_to_site(self.PATH)
+
     def enter_firstname(self, firstname):
         self.find_element(ManagerFormLocators.LOCATOR_FIRSTNAME_FIELD).send_keys(firstname)
 
@@ -32,7 +37,6 @@ class ManagerFormMethods(BasePage):
         ManagerFormLocators.LOCATOR_DELETE_CUSTOMER = \
             (ManagerFormLocators.LOCATOR_DELETE_CUSTOMER[0],
              ManagerFormLocators.LOCATOR_DELETE_CUSTOMER[1].replace("{row}", str(row + 1)))
-        #  print(ManagerFormLocators.LOCATOR_DELETE_CUSTOMER)
         self.find_element(ManagerFormLocators.LOCATOR_DELETE_CUSTOMER).click()
 
     def get_client_names(self, rows):
