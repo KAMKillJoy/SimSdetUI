@@ -1,3 +1,10 @@
+"""
+Модуль для создания данных нового клиента с данными:
+- postcode
+- firstname
+- secondname
+"""
+
 import random
 import string
 
