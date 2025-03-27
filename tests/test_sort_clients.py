@@ -31,5 +31,4 @@ def test_sort_clients(browser):
         names.append(name)
     sorted_names = names
     sorted_names.sort()
-    # print (sorted_names)
     with allure.step("Проверка соответствия результата сортировки ожидаемому"): assert sorted_names == names

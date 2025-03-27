@@ -45,9 +45,7 @@ def test_delete_client(browser):
 
     with allure.step("Вычисление клиента, чьё имя ближе всего по длине к среднему значению длин всех имён клиентов"):
         del_client = find_del_client(client_names)
-    #  print (del_client)
     del_client_number = client_names.index(del_client)
-    #  print (del_client_number)
     with allure.step("Удаление найденного клиента"):
         manager_form.delete_client_by_row_number(del_client_number)
 
