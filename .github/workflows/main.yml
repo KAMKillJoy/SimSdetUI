@@ -3,6 +3,7 @@ name: Python UI Tests
 on:
   push:
     branches: [ "feature_ui_tests" ]
+  workflow_dispatch:
 
 jobs:
   test:
