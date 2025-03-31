@@ -2,10 +2,6 @@ name: UI Test - delete client
 
 on:
   workflow_dispatch:
-  push:
-    branches: [ "github-actions-setup" ]
-  pull_request:
-    branches: [ "github-actions-setup" ]
 
 jobs:
   test:
