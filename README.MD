@@ -16,3 +16,8 @@
 3. allure-pytest 
 4. allure-pytest-commons
 5. pytest-xdist (для параллельного запуска)
+
+
+<h3>Просмотр последнего отчёта</h3>
+
+https://kamkilljoy.github.io/SimSdetUI/
