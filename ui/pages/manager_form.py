@@ -44,3 +44,11 @@ class ManagerFormPage(BasePage):
         for row in rows:
             client_names.append(row.find_element(By.XPATH, "./td[1]").text)
         return client_names
+
+    def get_client_text(self, client):
+        rows = self.get_customers_table()
+        for row in rows:
+            if client.first_name in row.text:
+                if client.second_name in row.text:
+                    cells = row.find_elements(By.TAG_NAME, "td")
+        return [cells[0].text,cells[1].text,cells[2].text]

@@ -1,7 +1,6 @@
 import allure
 from helpers.new_client import Client
 from selenium.webdriver.common.by import By
-from ui.pages.manager_form import ManagerFormPage
 
 
 @allure.epic("UI test")
@@ -36,15 +35,8 @@ def test_new_client_add_form(manager_form):
         manager_form.dismiss_alert()
     with allure.step("Открытие таблицы со всеми клиентами"):
         manager_form.click_customers()
-    rows = manager_form.get_customers_table()
     with allure.step("Поиск в таблице строки, содержащей Firstname и Lastname добавленного клиента"):
-        for row in rows:
-            if client.first_name in row.text:
-                if client.second_name in row.text:
-                    cells = row.find_elements(By.TAG_NAME, "td")
-                    with allure.step("Проверка соответствия Firstname ожидаемому"): assert cells[0].text == str(
-                        client.first_name)
-                    with allure.step("Проверка соответствия Lastname ожидаемому"): assert cells[1].text == str(
-                        client.second_name)
-                    with allure.step("Проверка соответствия Postcode ожидаемому"): assert cells[2].text == str(
-                        client.postcode)
+        cells = manager_form.get_client_text(client)
+    with allure.step("Проверка соответствия Firstname ожидаемому"): assert cells[0] == str(client.first_name)
+    with allure.step("Проверка соответствия Lastname ожидаемому"): assert cells[1] == str(client.second_name)
+    with allure.step("Проверка соответствия Postcode ожидаемому"): assert cells[2] == str(client.postcode)
