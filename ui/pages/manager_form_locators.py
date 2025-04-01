@@ -14,6 +14,6 @@ class ManagerFormLocators:
 
     FIRSTNAME_SORT = (By.XPATH, "//a[contains(text(), 'First Name')]")
 
-    CUSTOMERS_TABLE = (By.CSS_SELECTOR, ".table > tbody:nth-child(2)")
+    CUSTOMERS_TABLE = (By.XPATH, "//table[contains(@class, 'table')]/tbody/tr")
 
     DELETE_CUSTOMER = (By.XPATH, "//tr[@class='ng-scope'][{row}]//button[@ng-click='deleteCust(cust)']")
