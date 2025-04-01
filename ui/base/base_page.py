@@ -30,3 +30,9 @@ class BasePage:
     def dismiss_alert(self):
         alert = self.driver.switch_to.alert
         alert.dismiss()
+
+    def input_data(self, element, data):
+        return self.find_element(element).send_keys(data)
+
+    def click_element(self, element):
+        return self.find_element(element).click()

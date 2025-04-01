@@ -3,32 +3,32 @@ from ui.pages.manager_form_locators import ManagerFormLocators
 from selenium.webdriver.common.by import By
 
 
-class ManagerFormMethods(BasePage):
+class ManagerFormPage(BasePage):
     PATH = "#/manager"
 
     def go_to_site(self):
         super().go_to_site(self.PATH)
 
     def enter_firstname(self, firstname):
-        self.find_element(ManagerFormLocators.FIRSTNAME_FIELD).send_keys(firstname)
+        self.input_data(ManagerFormLocators.FIRSTNAME_FIELD, firstname)
 
     def enter_lastname(self, lastname):
-        self.find_element(ManagerFormLocators.LASTNAME_FIELD).send_keys(lastname)
+        self.input_data(ManagerFormLocators.LASTNAME_FIELD, lastname)
 
     def enter_postcode(self, postcode):
-        self.find_element(ManagerFormLocators.POSTCODE_FIELD).send_keys(postcode)
+        self.input_data(ManagerFormLocators.POSTCODE_FIELD, postcode)
 
     def click_add_customer_button(self):
-        self.find_element(ManagerFormLocators.ADD_CUSTOMER_BUTTON).click()
+        self.click_element(ManagerFormLocators.ADD_CUSTOMER_BUTTON)
 
     def click_submit_customer_button(self):
-        self.find_element(ManagerFormLocators.SUBMIT_CUSTOMER_BUTTON).click()
+        self.click_element(ManagerFormLocators.SUBMIT_CUSTOMER_BUTTON)
 
     def click_firstname_sort(self):
-        self.find_element(ManagerFormLocators.FIRSTNAME_SORT).click()
+        self.click_element(ManagerFormLocators.FIRSTNAME_SORT)
 
     def click_customers(self):
-        self.find_element(ManagerFormLocators.CUSTOMERS_BUTTON).click()
+        self.click_element(ManagerFormLocators.CUSTOMERS_BUTTON)
 
     def get_customers_table(self):
         return self.find_elements(ManagerFormLocators.CUSTOMERS_TABLE)
