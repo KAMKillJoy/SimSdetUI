@@ -3,9 +3,9 @@ name: UI Tests
 on:
   workflow_dispatch:
   push:
-    branches: [ "github-actions-setup" ]
+    branches: [ "github-actions-setup", "feature_ui_tests" ]
   pull_request:
-    branches: [ "github-actions-setup" ]
+    branches: [ "github-actions-setup", "feature_ui_tests" ]
 
 jobs:
   test:
