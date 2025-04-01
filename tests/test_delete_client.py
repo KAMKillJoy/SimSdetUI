@@ -1,5 +1,4 @@
 import allure
-from ui.pages.manager_form import ManagerFormPage
 from helpers.find_del_client import find_del_client
 
 
