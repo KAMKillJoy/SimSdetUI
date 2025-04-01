@@ -2,17 +2,18 @@ from selenium.webdriver.common.by import By
 
 
 class ManagerFormLocators:
-    LOCATOR_ADD_CUSTOMER_BUTTON = (By.XPATH, "(//button[contains(text(), 'Add Customer')])[1]")
-    LOCATOR_OPEN_ACCOUNT_BUTTON = (By.XPATH, "//button[contains(text(), 'Open Account')]")
-    LOCATOR_CUSTOMERS_BUTTON = (By.XPATH, "//button[contains(text(), 'Customers')]")
+    """Локаторы страницы ManagerForm"""
+    ADD_CUSTOMER_BUTTON = (By.XPATH, "(//button[contains(text(), 'Add Customer')])[1]")
+    OPEN_ACCOUNT_BUTTON = (By.XPATH, "//button[contains(text(), 'Open Account')]")
+    CUSTOMERS_BUTTON = (By.XPATH, "//button[contains(text(), 'Customers')]")
 
-    LOCATOR_FIRSTNAME_FIELD = (By.XPATH, "//input[@ng-model='fName']")
-    LOCATOR_LASTNAME_FIELD = (By.XPATH, "//input[@ng-model='lName']")
-    LOCATOR_POSTCODE_FIELD = (By.XPATH, "//input[@ng-model='postCd']")
-    LOCATOR_SUBMIT_CUSTOMER_BUTTON = (By.XPATH, "(//button[contains(text(), 'Add Customer')])[2]")
+    FIRSTNAME_FIELD = (By.XPATH, "//input[@ng-model='fName']")
+    LASTNAME_FIELD = (By.XPATH, "//input[@ng-model='lName']")
+    POSTCODE_FIELD = (By.XPATH, "//input[@ng-model='postCd']")
+    SUBMIT_CUSTOMER_BUTTON = (By.XPATH, "(//button[contains(text(), 'Add Customer')])[2]")
 
-    LOCATOR_FIRSTNAME_SORT = (By.XPATH, "//a[contains(text(), 'First Name')]")
+    FIRSTNAME_SORT = (By.XPATH, "//a[contains(text(), 'First Name')]")
 
-    LOCATOR_CUSTOMERS_TABLE = (By.XPATH, "/html/body/div[1]/div/div[2]/div/div[2]/div/div/table/tbody/tr")
+    CUSTOMERS_TABLE = (By.CSS_SELECTOR, ".table > tbody:nth-child(2)")
 
-    LOCATOR_DELETE_CUSTOMER = (By.XPATH, "//tr[@class='ng-scope'][{row}]//button[@ng-click='deleteCust(cust)']")
+    DELETE_CUSTOMER = (By.XPATH, "//tr[@class='ng-scope'][{row}]//button[@ng-click='deleteCust(cust)']")

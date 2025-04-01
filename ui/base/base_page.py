@@ -24,7 +24,7 @@ class BasePage:
     def go_to_site(self, path=""):
         return self.driver.get(f"{self.base_url}{path}")
 
-    def read_element(self, element):
+    def get_element_text(self, element):
         return element.text
 
     def dismiss_alert(self):

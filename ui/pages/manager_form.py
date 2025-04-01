@@ -10,34 +10,34 @@ class ManagerFormMethods(BasePage):
         super().go_to_site(self.PATH)
 
     def enter_firstname(self, firstname):
-        self.find_element(ManagerFormLocators.LOCATOR_FIRSTNAME_FIELD).send_keys(firstname)
+        self.find_element(ManagerFormLocators.FIRSTNAME_FIELD).send_keys(firstname)
 
     def enter_lastname(self, lastname):
-        self.find_element(ManagerFormLocators.LOCATOR_LASTNAME_FIELD).send_keys(lastname)
+        self.find_element(ManagerFormLocators.LASTNAME_FIELD).send_keys(lastname)
 
     def enter_postcode(self, postcode):
-        self.find_element(ManagerFormLocators.LOCATOR_POSTCODE_FIELD).send_keys(postcode)
+        self.find_element(ManagerFormLocators.POSTCODE_FIELD).send_keys(postcode)
 
     def click_add_customer_button(self):
-        self.find_element(ManagerFormLocators.LOCATOR_ADD_CUSTOMER_BUTTON).click()
+        self.find_element(ManagerFormLocators.ADD_CUSTOMER_BUTTON).click()
 
     def click_submit_customer_button(self):
-        self.find_element(ManagerFormLocators.LOCATOR_SUBMIT_CUSTOMER_BUTTON).click()
+        self.find_element(ManagerFormLocators.SUBMIT_CUSTOMER_BUTTON).click()
 
     def click_firstname_sort(self):
-        self.find_element(ManagerFormLocators.LOCATOR_FIRSTNAME_SORT).click()
+        self.find_element(ManagerFormLocators.FIRSTNAME_SORT).click()
 
     def click_customers(self):
-        self.find_element(ManagerFormLocators.LOCATOR_CUSTOMERS_BUTTON).click()
+        self.find_element(ManagerFormLocators.CUSTOMERS_BUTTON).click()
 
     def get_customers_table(self):
-        return self.find_elements(ManagerFormLocators.LOCATOR_CUSTOMERS_TABLE)
+        return self.find_elements(ManagerFormLocators.CUSTOMERS_TABLE)
 
     def delete_client_by_row_number(self, row):
-        ManagerFormLocators.LOCATOR_DELETE_CUSTOMER = \
-            (ManagerFormLocators.LOCATOR_DELETE_CUSTOMER[0],
-             ManagerFormLocators.LOCATOR_DELETE_CUSTOMER[1].replace("{row}", str(row + 1)))
-        self.find_element(ManagerFormLocators.LOCATOR_DELETE_CUSTOMER).click()
+        ManagerFormLocators.DELETE_CUSTOMER = \
+            (ManagerFormLocators.DELETE_CUSTOMER[0],
+             ManagerFormLocators.DELETE_CUSTOMER[1].replace("{row}", str(row + 1)))
+        self.find_element(ManagerFormLocators.DELETE_CUSTOMER).click()
 
     def get_client_names(self, rows):
         client_names = []
