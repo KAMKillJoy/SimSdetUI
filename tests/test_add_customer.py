@@ -2,25 +2,24 @@ import allure
 from helpers.new_client import Client
 from conftest import browser
 from selenium.webdriver.common.by import By
-from ui.pages.manager_form import ManagerFormMethods
+from ui.pages.manager_form import ManagerFormPage
 
 
 @allure.epic("UI test")
 @allure.feature("Работа с пользователями")
 @allure.story("Добавление клиента")
+@allure.title("Тест добавления нового клиента")
+@allure.description("Тест генерирует Имя клиента по алгоритму из ТЗ,"
+                    "заполняет поля Firstname, Lastname, Postcode и нажимает кнопку добавления клиента."
+                    "Затем проверяет наличие добавленного клиента в таблице клиентов")
+@allure.tag("GUI_test", "Simbirsoft", "ManagerForm")
+@allure.severity(allure.severity_level.CRITICAL)
+@allure.label("owner", "John Doe")
+@allure.link("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager",
+             name="Website")
 def test_new_client_add_form(browser):
-    allure.dynamic.title("Тест добавления нового клиента")
-    allure.dynamic.description("Тест генерирует Имя клиента по алгоритму из ТЗ,"
-                               "заполняет поля Firstname, Lastname, Postcode и нажимает кнопку добавления клиента."
-                               "Затем проверяет наличие добавленного клиента в таблице клиентов")
-    allure.dynamic.tag("GUI_test", "Simbirsoft", "ManagerForm")
-    allure.dynamic.severity(allure.severity_level.CRITICAL)
-    allure.dynamic.label("owner", "John Doe")
-    allure.dynamic.link("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager",
-                        name="Website")
-
     client = Client()
-    manager_form = ManagerFormMethods(browser)
+    manager_form = ManagerFormPage(browser)
 
     with allure.step("Открытие сайта"):
         manager_form.go_to_site()

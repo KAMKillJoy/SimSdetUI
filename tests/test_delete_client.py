@@ -1,22 +1,22 @@
 import allure
 from conftest import browser
-from ui.pages.manager_form import ManagerFormMethods
+from ui.pages.manager_form import ManagerFormPage
 from helpers.find_del_client import find_del_client
 
 
 @allure.epic("UI test")
 @allure.feature("Работа с пользователями")
 @allure.story("Удаление клиента")
+@allure.title("Тест удаления клиента")
+@allure.description(
+    "Удаляет клиента, чьё имя ближе всего по длине к среднему значению длин всех имён клиентов")
+@allure.tag("GUI_test", "Simbirsoft", "ManagerForm")
+@allure.severity(allure.severity_level.CRITICAL)
+@allure.label("owner", "John Doe")
+@allure.link("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager",
+             name="Website")
 def test_delete_client(browser):
-    allure.dynamic.title("Тест удаления клиента")
-    allure.dynamic.description(
-        "Удаляет клиента, чьё имя ближе всего по длине к среднему значению длин всех имён клиентов")
-    allure.dynamic.tag("GUI_test", "Simbirsoft", "ManagerForm")
-    allure.dynamic.severity(allure.severity_level.CRITICAL)
-    allure.dynamic.label("owner", "John Doe")
-    allure.dynamic.link("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager",
-                        name="Website")
-    manager_form = ManagerFormMethods(browser)
+    manager_form = ManagerFormPage(browser)
     with allure.step("Открытие сайта"):
         manager_form.go_to_site()
     with allure.step("Открытие таблицы со всеми клиентами"):
