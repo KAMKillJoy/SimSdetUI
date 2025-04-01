@@ -1,6 +1,5 @@
 import allure
 from helpers.new_client import Client
-from conftest import browser
 from selenium.webdriver.common.by import By
 from ui.pages.manager_form import ManagerFormPage
 
@@ -17,9 +16,8 @@ from ui.pages.manager_form import ManagerFormPage
 @allure.label("owner", "John Doe")
 @allure.link("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager",
              name="Website")
-def test_new_client_add_form(browser):
+def test_new_client_add_form(manager_form):
     client = Client()
-    manager_form = ManagerFormPage(browser)
 
     with allure.step("Открытие сайта"):
         manager_form.go_to_site()

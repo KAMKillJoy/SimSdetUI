@@ -1,5 +1,4 @@
 import allure
-from conftest import browser
 from ui.pages.manager_form import ManagerFormPage
 from helpers.find_del_client import find_del_client
 
@@ -15,8 +14,7 @@ from helpers.find_del_client import find_del_client
 @allure.label("owner", "John Doe")
 @allure.link("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager",
              name="Website")
-def test_delete_client(browser):
-    manager_form = ManagerFormPage(browser)
+def test_delete_client(manager_form):
     with allure.step("Открытие сайта"):
         manager_form.go_to_site()
     with allure.step("Открытие таблицы со всеми клиентами"):
