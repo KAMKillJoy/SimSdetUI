@@ -15,8 +15,7 @@ from helpers.find_del_client import find_del_client
 @allure.link("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager",
              name="Website")
 def test_delete_client(manager_form):
-    with allure.step("Открытие сайта"):
-        manager_form.go_to_site()
+    manager_form.go_to_site()
     with allure.step("Открытие таблицы со всеми клиентами"):
         manager_form.click_customers()
 

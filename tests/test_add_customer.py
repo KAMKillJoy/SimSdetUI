@@ -18,8 +18,7 @@ from data.new_client import Client
 def test_new_client_add_form(manager_form):
     client = Client()
 
-    with allure.step("Открытие сайта"):
-        manager_form.go_to_site()
+    manager_form.go_to_site()
     with allure.step("Нажатие кнопки добавления клиента"):
         manager_form.click_add_customer_button()
     with allure.step("Введение имени клиента (Firstname)"):
@@ -37,6 +36,9 @@ def test_new_client_add_form(manager_form):
         manager_form.click_customers()
     with allure.step("Поиск в таблице строки, содержащей Firstname и Lastname добавленного клиента"):
         cells = manager_form.get_client_text(client)
-    with allure.step("Проверка соответствия Firstname ожидаемому"): assert cells[0] == str(client.first_name)
-    with allure.step("Проверка соответствия Lastname ожидаемому"): assert cells[1] == str(client.second_name)
-    with allure.step("Проверка соответствия Postcode ожидаемому"): assert cells[2] == str(client.postcode)
+    with allure.step("Проверка соответствия Firstname ожидаемому"): assert cells[0] == str(
+        client.first_name), f"actual result = '{str(client.first_name)}'"
+    with allure.step("Проверка соответствия Lastname ожидаемому"): assert cells[1] == str(
+        client.second_name), f"actual result = '{str(client.second_name)}'"
+    with allure.step("Проверка соответствия Postcode ожидаемому"): assert cells[2] == str(
+        client.postcode), f"actual result = '{str(client.postcode)}'"

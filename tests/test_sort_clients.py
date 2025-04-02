@@ -14,7 +14,7 @@ import allure
 @allure.link("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager",
              name="Website")
 def test_sort_clients(manager_form):
-    with allure.step("Открытие сайта"): manager_form.go_to_site()
+    manager_form.go_to_site()
     with allure.step("Открытие таблицы с клиентами"): manager_form.click_customers()
     with allure.step("Первый клик на заголовок столбца Firstname (сортировка Z->A"): manager_form.click_firstname_sort()
     with allure.step(

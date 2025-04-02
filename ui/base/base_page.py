@@ -1,4 +1,6 @@
 import os
+
+import allure
 from dotenv import load_dotenv
 
 from selenium.webdriver.support.wait import WebDriverWait
@@ -23,7 +25,8 @@ class BasePage:
                                                       message=f"Can't find elements by locator {locator}")
 
     def go_to_site(self, path=""):
-        return self.driver.get(f"{self.base_url}{path}")
+        with allure.step("Открытие сайта {self.base_url}{path}"):
+            return self.driver.get(f"{self.base_url}{path}")
 
     def get_element_text(self, element):
         return element.text
