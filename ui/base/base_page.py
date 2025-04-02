@@ -1,7 +1,8 @@
+import os
+from dotenv import load_dotenv
+
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from dotenv import load_dotenv
-import os
 
 load_dotenv()
 base_url = os.getenv("BASE_URL")

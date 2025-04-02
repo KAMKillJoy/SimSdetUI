@@ -1,6 +1,6 @@
 import allure
-from helpers.new_client import Client
-from selenium.webdriver.common.by import By
+
+from data.new_client import Client
 
 
 @allure.epic("UI test")
