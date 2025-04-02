@@ -1,4 +1,5 @@
 import allure
+
 from helpers.find_del_client import find_del_client
 
 
@@ -31,14 +32,13 @@ def test_delete_client(manager_form):
     with allure.step("Удаление найденного клиента"):
         manager_form.delete_client_by_row_number(del_client_number)
 
-    rows = manager_form.get_customers_table()
     with allure.step("Проверка отсутствия удалённого клиента в таблице"):
+        rows = manager_form.get_customers_table()
         for row in rows:
-            assert del_client not in row.text
-
-    client_names.remove(del_client)
-    expected_client_names = client_names
-    client_names = manager_form.get_client_names(rows)
+            row_text = row.text
+            with allure.step(f"Проверка отсутствия клиента {del_client} в строке {row_text}"):
+                assert del_client not in row_text
 
     with allure.step("Проверка что итоговый список клиентов равен ожидаемому"):
-        assert client_names == expected_client_names
+        client_names.remove(del_client)  # Ожидаемый список имён
+        assert manager_form.get_client_names(rows) == client_names

@@ -1,6 +1,7 @@
+from selenium.webdriver.common.by import By
+
 from ui.base.base_page import BasePage
 from ui.pages.manager_form_locators import ManagerFormLocators
-from selenium.webdriver.common.by import By
 
 
 class ManagerFormPage(BasePage):
@@ -33,22 +34,35 @@ class ManagerFormPage(BasePage):
     def get_customers_table(self):
         return self.find_elements(ManagerFormLocators.CUSTOMERS_TABLE)
 
-    def delete_client_by_row_number(self, row):
-        ManagerFormLocators.DELETE_CUSTOMER = \
+    def delete_client_by_row_number(self, row_number):
+        """
+           Удаляет клиента из таблицы по указанному номеру строки.
+
+           Находит и кликает кнопку удаления для конкретной строки таблицы, подставляя переданный номер строки
+           в шаблон локатора. Нумерация строк начинается с 1, поэтому к переданному номеру добавляется 1.
+
+           Args:
+               row_number (int): Номер строки клиента для удаления (начиная с 0 для удобства работы с индексами)
+
+           Логика работы:
+               1. Берется базовый локатор кнопки удаления из ManagerFormLocators.DELETE_CUSTOMER
+               2. В локаторе заменяется плейсхолдер {row} на фактический номер строки (row_number + 1)
+               3. Находится элемент по модифицированному локатору и выполняется клик
+           """
+        delete_customer = \
             (ManagerFormLocators.DELETE_CUSTOMER[0],
-             ManagerFormLocators.DELETE_CUSTOMER[1].replace("{row}", str(row + 1)))
-        self.find_element(ManagerFormLocators.DELETE_CUSTOMER).click()
+             ManagerFormLocators.DELETE_CUSTOMER[1].replace("{row}", str(row_number + 1)))
+        self.find_element(delete_customer).click()
 
-    def get_client_names(self, rows):
-        client_names = []
-        for row in rows:
-            client_names.append(row.find_element(By.XPATH, "./td[1]").text)
-        return client_names
 
-    def get_client_text(self, client):
-        rows = self.get_customers_table()
-        for row in rows:
-            if client.first_name in row.text:
-                if client.second_name in row.text:
-                    cells = row.find_elements(By.TAG_NAME, "td")
-        return [cells[0].text,cells[1].text,cells[2].text]
+def get_client_names(self, rows):
+    return [row.find_element(By.XPATH, "./td[1]").text for row in rows]
+
+
+def get_client_text(self, client):
+    rows = self.get_customers_table()
+    for row in rows:
+        if client.first_name in row.text:
+            if client.second_name in row.text:
+                cells = row.find_elements(By.TAG_NAME, "td")
+    return [cells[0].text, cells[1].text, cells[2].text]
