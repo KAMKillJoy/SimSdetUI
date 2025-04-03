@@ -15,7 +15,7 @@ class Client:
     def __init__(self):
         self.postcode = self.__generate_postcode()
         self.first_name = self.__generate_firstname(self.postcode)
-        self.second_name = self.__generate_random_string(random.randint(1, 15))
+        self.last_name = self.__generate_random_string(random.randint(1, 15))
 
     def __generate_postcode(self):
         return random.randint(1000000000, 9999999999)

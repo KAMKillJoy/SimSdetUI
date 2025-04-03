@@ -24,7 +24,7 @@ def test_new_client_add_form(manager_form):
     with allure.step("Введение имени клиента (Firstname)"):
         manager_form.enter_firstname(client.first_name)
     with allure.step("Введение фамилии клиента (Lastname)"):
-        manager_form.enter_lastname(client.second_name)
+        manager_form.enter_lastname(client.last_name)
     with allure.step("Введение почтового кода (postcode"):
         manager_form.enter_postcode(client.postcode)
     with allure.step("Нажатие кнопки отправки данных"):
@@ -36,9 +36,18 @@ def test_new_client_add_form(manager_form):
         manager_form.click_customers()
     with allure.step("Поиск в таблице строки, содержащей Firstname и Lastname добавленного клиента"):
         cells = manager_form.get_client_text(client)
-    with allure.step("Проверка соответствия Firstname ожидаемому"): assert cells[0] == str(
-        client.first_name), f"actual result = '{str(client.first_name)}'"
-    with allure.step("Проверка соответствия Lastname ожидаемому"): assert cells[1] == str(
-        client.second_name), f"actual result = '{str(client.second_name)}'"
-    with allure.step("Проверка соответствия Postcode ожидаемому"): assert cells[2] == str(
-        client.postcode), f"actual result = '{str(client.postcode)}'"
+    with (allure.step("Проверка соответствия Firstname ожидаемому")):
+        actual_first_name = cells[0]
+        expected_first_name = str(client.first_name)
+        assert actual_first_name == expected_first_name, (f"Firstname {actual_first_name} "
+                                                          f"не равно ожидаемому {expected_first_name}")
+    with allure.step("Проверка соответствия Lastname ожидаемому"):
+        actual_last_name = cells[1]
+        expected_last_name = str(client.last_name)
+        assert actual_last_name == expected_last_name, (f"Lastname {actual_last_name} "
+                                                        f"не равно ожидаемому {expected_last_name}")
+    with allure.step("Проверка соответствия Postcode ожидаемому"):
+        actual_postcode = cells[2]
+        expected_postcode = str(client.postcode)
+        assert actual_postcode == expected_postcode, (f"Postcode {actual_postcode} "
+                                                      f"не равен ожидаемому {expected_postcode}")

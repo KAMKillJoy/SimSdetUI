@@ -18,8 +18,9 @@ def test_sort_clients(manager_form):
     with allure.step("Открытие таблицы с клиентами"): manager_form.click_customers()
     with allure.step("Первый клик на заголовок столбца Firstname (сортировка Z->A"): manager_form.click_firstname_sort()
     with allure.step(
-        "Второй клик на заголовок столбца Firstname (сортировка A->Z)"): manager_form.click_firstname_sort()
+            "Второй клик на заголовок столбца Firstname (сортировка A->Z)"): manager_form.click_firstname_sort()
 
     with allure.step("Проверка соответствия результата сортировки ожидаемому"):
         rows = manager_form.get_customers_table()
-        assert manager_form.get_client_names(rows) == sorted(manager_form.get_client_names(rows))
+        assert manager_form.get_client_names(rows) == sorted(
+            manager_form.get_client_names(rows)), "Имена в таблице не отсортированы"

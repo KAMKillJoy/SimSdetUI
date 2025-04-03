@@ -58,11 +58,17 @@ class ManagerFormPage(BasePage):
     def get_client_names(self, rows):
         return [row.find_element(By.XPATH, "./td[1]").text for row in rows]
 
+    def get_client_lastnames(self, rows):
+        return [row.find_element(By.XPATH, "./td[2]").text for row in rows]
+
+    def get_client_postcodes(self, rows):
+        return [row.find_element(By.XPATH, "./td[3]").text for row in rows]
+
 
     def get_client_text(self, client):
         rows = self.get_customers_table()
         for row in rows:
             if client.first_name in row.text:
-                if client.second_name in row.text:
+                if client.last_name in row.text:
                     cells = row.find_elements(By.TAG_NAME, "td")
         return [cells[0].text, cells[1].text, cells[2].text]
