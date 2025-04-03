@@ -2,9 +2,8 @@ import os
 
 import allure
 from dotenv import load_dotenv
-
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 
 load_dotenv()
 base_url = os.getenv("BASE_URL")
