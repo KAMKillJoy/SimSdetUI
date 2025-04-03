@@ -54,7 +54,6 @@ class ManagerFormPage(BasePage):
              ManagerFormLocators.DELETE_CUSTOMER[1].replace("{row}", str(row_number + 1)))
         self.find_element(delete_customer).click()
 
-
     def get_client_names(self, rows):
         return [row.find_element(By.XPATH, "./td[1]").text for row in rows]
 
@@ -63,7 +62,6 @@ class ManagerFormPage(BasePage):
 
     def get_client_postcodes(self, rows):
         return [row.find_element(By.XPATH, "./td[3]").text for row in rows]
-
 
     def get_client_text(self, client):
         rows = self.get_customers_table()
