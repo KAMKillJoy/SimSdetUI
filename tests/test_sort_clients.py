@@ -23,4 +23,4 @@ def test_sort_clients(manager_form):
     with allure.step("Проверка соответствия результата сортировки ожидаемому"):
         rows = manager_form.get_customers_table()
         current_names = manager_form.get_client_names(rows)
-        assert current_names == sorted(current_names), "Имена в таблице не отсортированы"
+        assert current_names == sorted(current_names, key=lambda x: x.lower()), "Имена в таблице не отсортированы"
