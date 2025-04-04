@@ -1,11 +1,11 @@
 name: UI Tests
 
 on:
-  workflow_dispatch:
   push:
-    branches: [ "github-actions-setup", "feature_ui_tests" ]
+    branches: ["**"]
   pull_request:
-    branches: [ "github-actions-setup", "feature_ui_tests" ]
+    types: [opened, synchronize, reopened, closed]
+    branches: ["**"]
 
 jobs:
   test:
