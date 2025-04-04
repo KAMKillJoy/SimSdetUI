@@ -18,7 +18,7 @@ if not close_browser:
     options.add_experimental_option("detach", True)
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="function")
 def browser():
     driver = webdriver.Chrome(service=ChromeService(executable_path=ChromeDriverManager().install()), options=options)
     yield driver
